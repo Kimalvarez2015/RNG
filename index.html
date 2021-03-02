@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <title>RNG</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form>
+            Cuantos temas quieres estudiar esta semana? <br>
+            <input type="number" id="inputReps">
+            <br>
+            Cuantos temas llevas dados?: <br>
+            <input type="number" id="inputTemas">
+            <br>
+            <button onclick= "Generador(document.getElementById('inputReps').value,document.getElementById('inputTemas').value)">Adelante!</button>
+            <br>
+            <label id="lLista"></label>
+        </form>
+        <script>
+            function Generador(reps,maximo){
+                var numero;
+                var output = "";
+                var tope = reps;
+                for(var i = 1; i<=tope; i++){
+                    numero = Math.random() * (parseInt(maximo,10) - 1) + 1;
+                    if(i===1){
+                        output = output + String(Math.round(numero));
+                    }else{
+                        output = output + ", " + String(Math.round(numero));
+                    }
+                }
+                document.getElementById('lLista').innerText =  output;
+            }
+        </script>
+    </body>
+</html>
