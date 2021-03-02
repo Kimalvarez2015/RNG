@@ -6,17 +6,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form>
+        <div class="Contenedor">
             Cuantos temas quieres estudiar esta semana? <br>
             <input type="number" id="inputReps">
             <br>
-            Cuantos temas llevas dados?: <br>
+            Cuantos temas llevas dados? <br>
             <input type="number" id="inputTemas">
             <br>
             <button onclick= "Generador(document.getElementById('inputReps').value,document.getElementById('inputTemas').value)">Adelante!</button>
             <br>
             <label id="lLista"></label>
-        </form>
+        </div>
         <script>
             function Generador(reps,maximo){
                 var numero;

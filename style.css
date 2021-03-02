@@ -4,11 +4,10 @@ html{
     background: linear-gradient(to right, #D5D8DC, #E5E8E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Crimson Pro', sans-serif;
     font-size: large;
 }
 
-form{
+.Contenedor{
     margin: auto;
     margin-top: 10px;
     width: 180px;
