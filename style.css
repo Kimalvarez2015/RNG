@@ -6,7 +6,16 @@ html{
     background-attachment: fixed;
     font-size: large;
 }
-
+button{
+    background-color: #52b788;
+    border: none;
+    padding: 13px 32px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 10px;
+}
 .Contenedor{
     margin: auto;
     margin-top: 10px;
