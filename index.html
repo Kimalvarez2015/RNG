@@ -9,30 +9,30 @@
     <body>
         <div class="Contenedor">
             Cuantos temas quieres estudiar esta semana? <br>
-            <input type="number" id="inputReps" value="0" onclick="vaciar('inputReps')">
+            <input type="number" id="inputReps" value="0" onclick="vaciarCampo('inputReps')">
             <br>
             Cuantos temas llevas dados? <br>
-            <input type="number" id="inputTemas" value="0" onclick="vaciar('inputTemas')">
+            <input type="number" id="inputMaximo" value="0" onclick="vaciarCampo('inputTemas')">
             <br>
-            <button onclick= "Generador(document.getElementById('inputReps').value,document.getElementById('inputTemas').value)">Adelante!</button>
+            <button onclick= "generadorReps(document.getElementById('inputReps').value,document.getElementById('inputMaximo').value)">Adelante!</button>
             <br>
             <label id="lLista"></label>
         </div>
         <script>
-            function Generador(reps,maximo){
-                var output = "";
-                for(var i = 0; i<=reps-1; i++){
+            function generadorReps(inputReps,maximoTemas){
+                var outputTemas = "";
+                for(var i = 0; i<=inputReps-1; i++){
                     if(i===0){
-                        output = output + String(Math.round(Math.random() * (parseInt(maximo,10) - 1) + 1));
+                        outputTemas = outputTemas + String(Math.round(Math.random() * (parseInt(maximoTemas,10) - 1) + 1));
                     }else{
-                        output = output + ", " + String(Math.round(Math.random() * (parseInt(maximo,10) - 1) + 1));
+                        outputTemas = outputTemas + ", " + String(Math.round(Math.random() * (parseInt(maximoTemas,10) - 1) + 1));
                     }
                 
                 }
                 document.getElementById('lLista').innerText =  output;
             }
-            function vaciar(id){
-                document.getElementById(id).value="";
+            function vaciarCampo(idCampo){
+                document.getElementById(idCampo).value="";
             }
         </script>
     </body>
