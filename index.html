@@ -12,26 +12,39 @@
             <input type="number" id="inputReps" value="0" onclick="vaciarCampo('inputReps')">
             <br>
             Cuantos temas llevas dados? <br>
-            <input type="number" id="inputMaximo" value="0" onclick="vaciarCampo('inputTemas')">
+            <input type="number" id="inputMaximo" value="0" onclick="vaciarCampo('inputMaximo')">
             <br>
             <button onclick= "generadorReps(document.getElementById('inputReps').value,document.getElementById('inputMaximo').value)">Adelante!</button>
             <br>
             <label id="lLista"></label>
         </div>
         <script>
-            function generadorReps(inputReps,maximoTemas){
-                var outputTemas = "";
-                for(var i = 0; i<=inputReps-1; i++){
+            function generadorReps(totalReps,maximoTemas){
+                //variable de output y variable de control de duplicados
+                var outputLabel = "";
+                var numAleatorio = "";
+                for(var i = 0; i<=totalReps-1; i++){
+                    //genera el num aleatorio a meter en el string y le cambia el tipo de int a string directamente para evitar problemas más adelante
+                    numAleatorio = String(Math.round(Math.random() * (parseInt(maximoTemas,10) - 1) + 1));
                     if(i===0){
-                        outputTemas = outputTemas + String(Math.round(Math.random() * (parseInt(maximoTemas,10) - 1) + 1));
+                        //Si el string está vacío, meter el valor directamente
+                        outputLabel = outputLabel + numAleatorio;
+                    /*}else if(outputLabel.includes(numAleatorio)){
+                        //Si el string no está vacío y ya contiene el numero que se ha generado 
+                        //tiramos el contador para atrás de forma que esta vuelta no cuente y no añadimos el valor al String 
+                        i--;*/
                     }else{
-                        outputTemas = outputTemas + ", " + String(Math.round(Math.random() * (parseInt(maximoTemas,10) - 1) + 1));
+                        //Si el string no está vacío, y no contiene el valor, lo añadimos al final tras una coma.
+                        outputLabel = outputLabel + ", " + numAleatorio;
                     }
                 
                 }
-                document.getElementById('lLista').innerText =  output;
+                //ponemos el valor del string en el label que estaba vacío hasta ahora.
+                document.getElementById('lLista').innerText =  outputLabel;
             }
             function vaciarCampo(idCampo){
+                //pasamos el nombre del campo como método y vaciamos el elemento en cuestión.
+                //FUNCION USADA EN ONCLICK EN LOS INPUTS 
                 document.getElementById(idCampo).value="";
             }
         </script>
